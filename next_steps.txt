@@ -1,0 +1,22 @@
+
+# PRÓXIMOS PASOS DE INVESTIGACIÓN - COLLATZ
+
+## OBJETIVOS INMEDIATOS (1-2 semanas)
+1. Prueba matemática formal de la fórmula modular
+2. Exploración sistemática de familias relacionadas
+3. Verificación computacional hasta k=10
+
+## OBJETIVOS MEDIANOS (1-3 meses)
+1. Desarrollo de teoría general para familias modulares
+2. Conexiones con teoría de números avanzada
+3. Optimizaciones algorítmicas para verificación masiva
+
+## OBJETIVOS A LARGO PLAZO (6+ meses)
+1. Contribución significativa a la resolución de Collatz
+2. Publicaciones en journals matemáticos
+3. Desarrollo de nuevas herramientas computacionales
+
+## RECURSOS NECESARIOS
+- Computación de alto rendimiento para verificación
+- Colaboración con matemáticos teóricos
+- Acceso a literatura especializada
