@@ -403,7 +403,7 @@ def main_attack():
         
         # Guardar checkpoint solo si SAVE_TO_GIT es True
         # De lo contrario, solo guardar el resultado final
-        if CONFIG.get('SAVE_TO_GIT', False):
+        if CONFIG['SAVE_TO_GIT']:
             if i % 5 == 0 or i == len(chunk_ranges) - 1:
                 save_results(all_results, summary, filename_base='collatz_checkpoint')
     
