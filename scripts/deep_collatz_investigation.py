@@ -65,11 +65,6 @@ class CollatzDeepInvestigation:
             visited.add(current)
             sequence.append(current)
             max_value = max(max_value, current)
-            
-            # Detectar posible divergencia (solo marcar, no prevenir convergencia)
-            if current > n * 100 and steps < 100:
-                # Este es solo un marcador de crecimiento temprano, no impide convergencia
-                pass
         
         converged = (current == 1)
         result = {
@@ -285,7 +280,8 @@ class CollatzDeepInvestigation:
                 if len(seq) >= 2:
                     current_idx = 1  # Después de 3n+1
                     count = 0
-                    while current_idx < len(seq) and isinstance(seq[current_idx], int) and seq[current_idx] % 2 == 0:
+                    # Sequences should only contain integers, so isinstance check removed
+                    while current_idx < len(seq) and seq[current_idx] % 2 == 0:
                         count += 1
                         current_idx += 1
                     consecutive_halvings.append(count)

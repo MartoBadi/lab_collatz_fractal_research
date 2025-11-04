@@ -132,8 +132,8 @@ class TheoreticalCollatzAnalysis:
         for n in range(100, 1000):
             seq, steps = self.collatz_sequence(n)
             if steps < 10000:
-                # Contar operaciones
-                odds = sum(1 for x in seq[:-1] if isinstance(x, int) and x % 2 == 1)
+                # Contar operaciones (sequences should only contain integers)
+                odds = sum(1 for x in seq[:-1] if x % 2 == 1)
                 evens = steps - odds
                 
                 # Factor estimado

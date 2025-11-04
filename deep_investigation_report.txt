@@ -56,4 +56,5 @@ INVESTIGACIÓN PROFUNDA DE LA CONJETURA DE COLLATZ
 Tiempo de investigación: 4.28 segundos
 Números probados: >100,000
 Ciclos no triviales encontrados: 0
-Candidatos a divergencia: 2492
+Candidatos a divergencia (crecimiento temporal): 0
+Nota: Todos los números verificados eventualmente convergen a 1.
