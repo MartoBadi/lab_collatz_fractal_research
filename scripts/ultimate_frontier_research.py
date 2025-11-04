@@ -258,7 +258,7 @@ def radical(n):
         if n % i == 0:
             factors.add(i)
             while n % i == 0:
-                n // = i
+                n //= i
         i += 1
     if n > 1:
         factors.add(n)
