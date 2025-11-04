@@ -401,8 +401,8 @@ def main_attack():
         if CONFIG['VERBOSE']:
             print_progress_report(len(all_results), CONFIG['MAX_N']//2, elapsed, summary)
         
-        # Guardar checkpoint solo si SAVE_TO_GIT es True
-        # De lo contrario, solo guardar el resultado final
+        # Guardar checkpoint intermedio solo si SAVE_TO_GIT es True
+        # Los checkpoints incluyen guardados cada 5 chunks durante el procesamiento
         if CONFIG['SAVE_TO_GIT']:
             if i % 5 == 0 or i == len(chunk_ranges) - 1:
                 save_results(all_results, summary, filename_base='collatz_checkpoint')
@@ -413,7 +413,7 @@ def main_attack():
     
     print(final_report)
     
-    # Guardar resultados finales
+    # Guardar resultados finales (SIEMPRE se guarda, independiente de SAVE_TO_GIT)
     save_results(all_results, final_summary, filename_base='collatz_final')
     
     # Guardar reporte
