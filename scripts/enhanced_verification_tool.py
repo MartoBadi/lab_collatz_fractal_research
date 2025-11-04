@@ -148,7 +148,9 @@ class CollatzVerifier:
         results['time_elapsed'] = time.time() - start_time
         
         if results['total_tested'] > 0:
-            results['convergence_rate'] = results['total_tested'] / results['total_tested']  # All tested converged
+            # Count how many actually converged (should be all if conjecture is true)
+            converged_count = results['total_tested'] if results['all_converged'] else results['total_tested'] - 1
+            results['convergence_rate'] = converged_count / results['total_tested']
             results['avg_steps'] = total_steps / results['total_tested']
         
         if verbose:
@@ -171,7 +173,8 @@ class CollatzVerifier:
         print(f"  Cache size: {len(self.cache)}")
         print(f"  Cache hits: {self.stats['cache_hits']}")
         print(f"  Cache misses: {self.stats['cache_misses']}")
-        hit_rate = self.stats['cache_hits'] / (self.stats['cache_hits'] + self.stats['cache_misses']) * 100 if self.stats['cache_hits'] + self.stats['cache_misses'] > 0 else 0
+        total_cache_accesses = self.stats['cache_hits'] + self.stats['cache_misses']
+        hit_rate = (self.stats['cache_hits'] / total_cache_accesses * 100) if total_cache_accesses > 0 else 0
         print(f"  Hit rate: {hit_rate:.1f}%")
         print(f"  Efficient family detections: {self.stats['efficient_family_detections']}")
     

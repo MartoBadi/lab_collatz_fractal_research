@@ -87,7 +87,8 @@ def verify_efficient_family(a: int, k_range: int = 10, z_range: int = 5) -> dict
         'avg_steps': 0,
         'min_steps': float('inf'),
         'max_steps': 0,
-        'steps_distribution': []
+        'steps_distribution': [],
+        'convergence_rate': 0.0
     }
     
     total_steps = 0
