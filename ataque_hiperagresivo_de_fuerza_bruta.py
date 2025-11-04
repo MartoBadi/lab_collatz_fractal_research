@@ -30,7 +30,8 @@ CONFIG = {
     'MAX_J': 30,               # Potencia máxima de 4 a considerar
     'PARALLEL': True,          # Usar procesamiento paralelo
     'CHUNK_SIZE': 1000,        # Tamaño de chunk para paralelización
-    'SAVE_INTERVAL': 10000,    # Guardar resultados cada N números
+    'SAVE_INTERVAL': 50000,    # Guardar resultados cada N números (menos frecuente)
+    'SAVE_TO_GIT': False,      # NO subir intermedios
     'VERBOSE': True,           # Mostrar progreso detallado
 }
 
@@ -400,9 +401,11 @@ def main_attack():
         if CONFIG['VERBOSE']:
             print_progress_report(len(all_results), CONFIG['MAX_N']//2, elapsed, summary)
         
-        # Guardar checkpoint
-        if i % 5 == 0 or i == len(chunk_ranges) - 1:
-            save_results(all_results, summary, filename_base='collatz_checkpoint')
+        # Guardar checkpoint intermedio solo si SAVE_TO_GIT es True
+        # Cuando es False, se omiten guardados intermedios (solo se guarda el resultado final)
+        if CONFIG['SAVE_TO_GIT']:
+            if i % 5 == 0 or i == len(chunk_ranges) - 1:
+                save_results(all_results, summary, filename_base='collatz_checkpoint')
     
     # Reporte final
     total_time = time.time() - start_time
@@ -410,7 +413,7 @@ def main_attack():
     
     print(final_report)
     
-    # Guardar resultados finales
+    # Guardar resultados finales (SIEMPRE se guarda, independiente de SAVE_TO_GIT)
     save_results(all_results, final_summary, filename_base='collatz_final')
     
     # Guardar reporte
