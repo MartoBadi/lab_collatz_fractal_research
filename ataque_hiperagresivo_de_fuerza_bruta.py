@@ -22,7 +22,7 @@ from functools import partial
 # =============================================================================
 
 CONFIG = {
-    'MAX_N': 100000,           # Límite superior de números a probar
+    'MAX_N': 10000000,         # Límite superior de números a probar
     'MAX_STEPS': 10000,        # Pasos máximos antes de declarar "fallo"
     'EXTENDED_A': [12, 16, 20, 24, 28, 32, 36, 40, 44, 48, 52, 56, 60, 64, 
                    68, 72, 80, 84, 88, 96, 100],  # Conjunto A extendido
@@ -30,7 +30,7 @@ CONFIG = {
     'MAX_J': 30,               # Potencia máxima de 4 a considerar
     'PARALLEL': True,          # Usar procesamiento paralelo
     'CHUNK_SIZE': 1000,        # Tamaño de chunk para paralelización
-    'SAVE_INTERVAL': 5000,     # Guardar resultados cada N números
+    'SAVE_INTERVAL': 10000,    # Guardar resultados cada N números
     'VERBOSE': True,           # Mostrar progreso detallado
 }
 
@@ -374,7 +374,8 @@ def main_attack():
     print(f"  Pasos máximos: {CONFIG['MAX_STEPS']:,}")
     print(f"  Paralelización: {'SÍ' if CONFIG['PARALLEL'] else 'NO'}")
     
-    input("\nPresiona ENTER para iniciar el ataque brutal...")
+    # input("\nPresiona ENTER para iniciar el ataque brutal...")  # Auto-ejecutar
+    print("\nIniciando ataque brutal automáticamente...")
     
     start_time = time.time()
     all_results = []
