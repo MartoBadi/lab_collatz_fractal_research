@@ -64,4 +64,4 @@ en el océano de caos aparente. La familia N = 20×4^k + 1 + z es una de esas is
 
 ---
 *Investigación realizada por MartoBadi*
-*Fecha: 2025-11-03*
+*Fecha: 2025-11-04*
